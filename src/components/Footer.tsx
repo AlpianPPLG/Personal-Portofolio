@@ -78,7 +78,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                href="https://www.instagram.com/_ubermensch7/?__pwa=1"
+                href="https://www.instagram.com/_nova.pratama/?__pwa=1"
                 className="text-gray-400 hover:text-white transition-colors duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
