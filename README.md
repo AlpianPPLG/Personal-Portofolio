@@ -1,319 +1,165 @@
-# 🚀 Personal Portfolio Website
+# 🚀 Alpian — Full‑Stack Portfolio
 
 <div align="center">
   
-  ![React](https://img.shields.io/badge/React-18.3.1-61DAFB?style=for-the-badge&logo=react&logoColor=white)
-  ![TypeScript](https://img.shields.io/badge/TypeScript-5.6.2-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-  ![Vite](https://img.shields.io/badge/Vite-6.0.5-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-  ![TailwindCSS](https://img.shields.io/badge/Tailwind-3.4.17-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+  ![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+  ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+  ![Vite](https://img.shields.io/badge/Vite-6-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+  ![TailwindCSS](https://img.shields.io/badge/Tailwind-3-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+  ![Framer Motion](https://img.shields.io/badge/Framer%20Motion-Active-0055FF?style=for-the-badge&logo=framer)
+
+  <br/>
+  <b>A modern, interactive portfolio showcasing full‑stack work, skills, and experience.</b>
   
-  **A modern, interactive, and responsive portfolio website built with React, TypeScript, and Tailwind CSS**
-  
-  [Live Demo](#) • [Report Bug](#) • [Request Feature](#)
-  
+  <!-- Optional: add live demo link when available -->
+  <!-- [Live Demo](https://your-domain.com) -->
 </div>
 
 ---
 
-## 📋 Table of Contents
+## Overview
 
-- [About](#-about)
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Getting Started](#-getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Development](#development)
-  - [Build](#build)
-- [Project Structure](#-project-structure)
-- [Key Components](#-key-components)
-- [Customization](#-customization)
-- [Performance](#-performance)
-- [Browser Support](#-browser-support)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Contact](#-contact)
+This portfolio is built with React + TypeScript + Vite and styled with Tailwind CSS. It focuses on clarity, performance, and interactivity, featuring an advanced project filter, lazy‑loaded images, and a dedicated Resume/CV page with print/export options.
 
 ---
 
-## 🎯 About
+## Features
 
-This is a modern, fully responsive personal portfolio website showcasing my work, skills, and experience. Built with cutting-edge web technologies, it features smooth animations, interactive UI elements, and optimized performance.
+- Landing Page
+  - Animated Hero with CTA buttons (WhatsApp + View Resume)
+  - About, Services, Portfolio, Pricing, FAQ, Testimonials, Contact
+  - Back‑to‑Top button with smooth scroll
+  - Dark/Light mode toggle (persisted)
+  - Scroll‑spy highlighting in the navbar
 
-### ✨ Highlights
+- Portfolio Section
+  - Advanced filtering by category and technology stack (multi‑select)
+  - Search by title/description/tags
+  - Lazy loading for images with skeleton shimmer
+  - Project modal with details and external links
 
-- 🎨 **Modern Design** - Clean and professional UI with smooth animations
-- 📱 **Fully Responsive** - Works seamlessly on all devices
-- 🌓 **Dark/Light Mode** - Toggle between themes with persistent storage
-- ⚡ **Fast & Optimized** - Built with Vite for lightning-fast performance
-- 🎭 **Interactive** - Engaging animations with Framer Motion
-- 🔍 **SEO Friendly** - Optimized for search engines
+- Resume/CV Page (/resume)
+  - Interactive timeline (Experience & Education tabs)
+  - Animated skill progress bars by category
+  - Certifications & Achievements sections
+  - Download CV (PDF) button and Print‑friendly layout
 
----
-
-## ✨ Features
-
-### 🏠 Home Page
-- **Hero Section** - Eye-catching introduction with call-to-action buttons
-- **About Section** - Professional introduction and background
-- **Services** - Overview of services offered
-- **Portfolio** - Showcase of projects with:
-  - Advanced filtering by technology stack
-  - Lazy loading for optimized image loading
-  - Project modals with detailed information
-  - Responsive grid layout
-- **Testimonials** - Client feedback and reviews
-- **Features** - Key highlights and capabilities
-- **FAQ** - Frequently asked questions
-- **Contact** - Contact form with toast notifications
-- **Pricing** - Service packages and pricing (optional)
-
-### 📄 Resume/CV Page
-- **Interactive Timeline** - Work experience and education history
-- **Skill Bars** - Animated progress bars for technical skills
-- **Certifications** - Achievements and certifications showcase
-- **Download CV** - Direct PDF download functionality
-- **Print-Friendly** - Optimized layout for printing
-
-### 🎨 UI/UX Features
-- **Back to Top Button** - Smooth scroll to top functionality
-- **Smooth Scrolling** - Enhanced navigation experience
-- **Scroll Spy** - Active navigation highlighting
-- **Loading States** - Skeleton loaders and lazy loading
-- **Toast Notifications** - User feedback for actions
-- **Responsive Navigation** - Mobile-friendly menu
+- Quality & DX
+  - TypeScript types across data and components
+  - Framer Motion animations
+  - ESLint setup
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-### Frontend
-- **[React 18](https://react.dev/)** - UI library
-- **[TypeScript](https://www.typescriptlang.org/)** - Type safety
-- **[Vite](https://vitejs.dev/)** - Build tool and dev server
-- **[React Router DOM](https://reactrouter.com/)** - Client-side routing
-- **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework
-
-### Libraries & Tools
-- **[Framer Motion](https://www.framer.com/motion/)** - Animation library
-- **[Lucide React](https://lucide.dev/)** - Icon library
-- **[React Toastify](https://fkhadra.github.io/react-toastify/)** - Toast notifications
-- **[ESLint](https://eslint.org/)** - Code linting
-- **[PostCSS](https://postcss.org/)** - CSS processing
+- React 18, TypeScript, Vite
+- Tailwind CSS, PostCSS
+- React Router DOM
+- Framer Motion, Lucide Icons
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
-### Prerequisites
+Prerequisites
+- Node.js >= 18
+- npm, yarn, or pnpm
 
-Before you begin, ensure you have the following installed:
-- **Node.js** (v18 or higher)
-- **npm** or **yarn** or **pnpm**
+Install and run (npm shown):
 
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/ts-porto.git
-   cd ts-porto
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   # or
-   pnpm install
-   ```
-
-### Development
-
-Start the development server:
-
-```bash
+```cmd
+npm install
 npm run dev
 ```
 
-The application will be available at `http://localhost:5173/`
+Build and preview:
 
-### Build
-
-Create a production build:
-
-```bash
+```cmd
 npm run build
-```
-
-Preview the production build:
-
-```bash
 npm run preview
 ```
 
-### Linting
+Lint:
 
-Run ESLint to check code quality:
-
-```bash
+```cmd
 npm run lint
 ```
 
+The app runs at http://localhost:5173
+
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ts-porto/
-├── public/                  # Static assets
-│   ├── img/                # Images
-│   ├── Certificate/        # Certificates
-│   └── CvAndResume/        # CV/Resume PDFs
-├── src/
-│   ├── components/         # React components
-│   │   ├── ui/            # Reusable UI components
-│   │   ├── Navbar.tsx
-│   │   ├── Hero.tsx
-│   │   ├── Portfolio.tsx
-│   │   └── ...
-│   ├── pages/             # Page components
-│   │   ├── HomePage.tsx
-│   │   └── ResumePage.tsx
-│   ├── layouts/           # Layout components
-│   │   └── ResumeLayout.tsx
-│   ├── hooks/             # Custom React hooks
-│   │   ├── useTheme.ts
-│   │   └── useScrollSpy.ts
-│   ├── data/              # Data files
-│   │   ├── projects.ts
-│   │   └── resume.ts
-│   ├── types/             # TypeScript type definitions
-│   │   └── index.ts
-│   ├── utils/             # Utility functions
-│   │   └── verifySetup.ts
-│   ├── App.tsx            # Main App component
-│   ├── main.tsx           # Entry point
-│   └── index.css          # Global styles
-├── index.html             # HTML template
-├── vite.config.ts         # Vite configuration
-├── tailwind.config.js     # Tailwind CSS configuration
-├── tsconfig.json          # TypeScript configuration
-└── package.json           # Project dependencies
+├─ public/
+│  ├─ img/                 # Images
+│  └─ CvAndResume/         # Resume/CV PDFs
+├─ src/
+│  ├─ components/
+│  │  ├─ ui/               # Reusable UI (BackToTop, LazyImage, etc.)
+│  │  ├─ Hero.tsx
+│  │  ├─ Navbar.tsx
+│  │  ├─ Portofolio.tsx
+│  │  └─ ...
+│  ├─ pages/
+│  │  ├─ HomePage.tsx
+│  │  └─ ResumePage.tsx
+│  ├─ layouts/
+│  │  └─ ResumeLayout.tsx
+│  ├─ data/                # Projects & resume data
+│  │  ├─ projects.ts
+│  │  └─ resume.ts
+│  ├─ hooks/               # useTheme, useScrollSpy
+│  ├─ types/
+│  ├─ utils/
+│  ├─ App.tsx
+│  └─ main.tsx
+└─ package.json
 ```
 
 ---
 
-## 🔑 Key Components
+## Customization
 
-### 🧩 UI Components
+- Update portfolio items: `src/data/projects.ts`
+- Edit resume content: `src/data/resume.ts`
+- Replace images: `public/img/`
+- Update CV/PDF: `public/CvAndResume/`
 
-| Component | Description |
-|-----------|-------------|
-| `BackToTop` | Scroll-to-top button with smooth animation |
-| `LazyImage` | Lazy loading image component for performance |
-| `ProjectCard` | Card component for portfolio items |
-| `ProjectFilter` | Filter projects by technology |
-| `ProjectModal` | Modal for detailed project view |
-| `SkillBar` | Animated skill progress bar |
-| `TimelineItem` | Timeline component for experience/education |
-
-### 🪝 Custom Hooks
-
-- **`useTheme`** - Manage dark/light theme with localStorage persistence
-- **`useScrollSpy`** - Track active section during scrolling
-
-### 📄 Pages
-
-- **`HomePage`** - Main landing page with all sections
-- **`ResumePage`** - Dedicated CV/Resume page
+Theme/Design tweaks: `tailwind.config.js` and component files in `src/components/`.
 
 ---
 
-## 🎨 Customization
+## Notes & Shortcuts
 
-### Update Personal Information
-
-1. **Edit project data** in `src/data/projects.ts`
-2. **Edit resume data** in `src/data/resume.ts`
-3. **Replace images** in `public/img/`
-4. **Update CV/Resume PDF** in `public/CvAndResume/`
-
-### Modify Theme Colors
-
-Edit `tailwind.config.js`:
-
-```js
-module.exports = {
-  theme: {
-    extend: {
-      colors: {
-        primary: '#your-color',
-        secondary: '#your-color',
-        // ... more colors
-      }
-    }
-  }
-}
-```
-
-### Customize Sections
-
-Components in `src/components/` can be easily modified or removed based on your needs.
+- Resume button lives in the Hero section (next to “Let’s talk”) and routes to `/resume`.
+- Navbar adapts on the Resume page so it remains visible at the top in light mode.
+- Tech‑stack filtering in the Portfolio supports multi‑select (AND logic).
 
 ---
 
-## ⚡ Performance
+## Roadmap Ideas
 
-- **Lazy Loading** - Images and components load on demand
-- **Code Splitting** - React Router handles automatic code splitting
-- **Optimized Build** - Vite provides optimized production builds
-- **Tree Shaking** - Unused code is eliminated
-- **Asset Optimization** - Images and assets are compressed
-
----
-
-## 🌐 Browser Support
-
-- ✅ Chrome (latest)
-- ✅ Firefox (latest)
-- ✅ Safari (latest)
-- ✅ Edge (latest)
-- ✅ Mobile browsers
+- Blog/Articles section (dev notes, case studies)
+- Project case studies with metrics (before/after, perf, SEO)
+- Playground/demos for interactive components
+- CMS integration for dynamic content (e.g., Notion, Contentful)
+- Unit tests for components/hooks
 
 ---
 
-## 🤝 Contributing
+## License
 
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+This project is open‑sourced under the MIT License.
 
 ---
 
-## 📝 License
+## Contact
 
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-## 📧 Contact
-
-Project Link: [https://github.com/AlpianPPLG/Modern-Portofolio](https://github.com/AlpianPPLG/Modern-Portofolio)
-
----
-
-<div align="center">
-  
-  **⭐ Star this repo if you find it helpful!**
-  
-  Made with ❤️ and ☕
-  
-  © 2025 All Rights Reserved
-  
-</div>
-
+- Website: https://alpian-porto.vercel.app/
+- GitHub: https://github.com/AlpianPPLG
+- LinkedIn: https://www.linkedin.com/in/alpian-alpian-7a16522bb/
+- Email: Nova07pplg@gmail.com

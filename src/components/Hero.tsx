@@ -66,7 +66,7 @@ const Hero = () => {
                 variants={fadeInUp}
                 className="text-2xl mb-2 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent"
               >
-                UI/UX Designer
+                Full Stack Developer
               </motion.h2>
               <motion.h1
                 variants={fadeInUp}
@@ -88,9 +88,7 @@ const Hero = () => {
               transition={{ delay: 0.4 }}
               className="text-lg text-gray-300"
             >
-              Creative front-end developer with more than 5 years of experience
-              in enterprise companies and startups. Proficient in JavaScript and
-              React. Passionate about UI/UX.
+              Full-stack developer with 3+ years building end-to-end, high-performance web apps. I work across the stack—React & TypeScript on the front end, Node.js and APIs on the back end—with a strong focus on clean UI, performance, and DX.
             </motion.p>
 
             <div className="flex flex-wrap gap-4">
@@ -163,7 +161,7 @@ const Hero = () => {
               />
               <img
                 src="/img/Foto.jpg"
-                alt="Stefan William"
+                alt="Alpian profile"
                 className="relative rounded-lg shadow-2xl w-full h-auto object-cover transform transition duration-500 group-hover:scale-[1.02]"
               />
             </div>

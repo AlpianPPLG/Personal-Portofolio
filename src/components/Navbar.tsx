@@ -39,8 +39,10 @@ const Navbar = () => {
   const { isDarkMode, toggleTheme } = useTheme();
   const location = useLocation();
 
+  // Normalize path to handle double slashes and trailing slashes
+  const normalizedPath = location.pathname.replace(/\/+/, "/").replace(/\/$/, "");
   // Check if we're on resume page or other pages without hero
-  const isResumePage = location.pathname === '/resume';
+  const isResumePage = normalizedPath === '/resume';
   const shouldHaveBackground = isScrolled || isResumePage;
   // Update scroll spy order to match the navbar order (About before Services)
   const activeSection = useScrollSpy(['hero', 'about', 'services', 'portfolio', 'pricing', 'faq', 'testimony', 'contact']);
@@ -126,6 +128,9 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
+
+    // Initialize isScrolled on mount as well
+    handleScroll();
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);

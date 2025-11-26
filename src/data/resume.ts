@@ -192,12 +192,12 @@ export const achievements: Achievement[] = [
 // Personal Info
 export const personalInfo = {
   name: 'Alpian',
-  title: 'Frontend Developer & UI/UX Enthusiast',
+  title: 'Full Stack Developer',
   email: 'Nova07pplg@gmail.com',
   phone: '+62 812-5844-194',
   location: 'Indonesia',
   website: 'https://alpian-porto.vercel.app/',
   github: 'https://github.com/AlpianPPLG',
   linkedin: 'https://www.linkedin.com/in/alpian-alpian-7a16522bb/',
-  summary: 'Passionate frontend developer with expertise in React, TypeScript, and modern web technologies. Committed to creating beautiful, accessible, and performant web applications. Always eager to learn new technologies and best practices.',
+  summary: 'Full-stack developer specializing in React, TypeScript, Node.js, and modern web tooling. I build end-to-end, scalable applications with clean architecture, accessible UI, and a strong focus on performance and developer experience.',
 };

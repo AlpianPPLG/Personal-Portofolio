@@ -94,16 +94,15 @@ const About = () => {
               Hi, I'm Alpian. Nice to meet you.
             </h3>
             <p className="text-lg text-gray-600 dark:text-gray-300">
-              I'm a passionate UI/UX designer and web developer with over 3
-              years of experience. My journey in the digital world has been
-              driven by a constant desire to create intuitive and visually
-              appealing experiences that solve real-world problems.
+              I'm a Full Stack Developer with over 3 years of experience building
+              end-to-end web applications. I combine strong frontend skills
+              (React, TypeScript, Tailwind) with solid backend fundamentals
+              (Node.js, REST APIs) to deliver scalable and maintainable products.
             </p>
             <p className="text-lg text-gray-600 dark:text-gray-300">
-              My approach combines creativity with technical expertise, ensuring
-              that every project I work on is not only beautiful but also
-              functional and user-friendly. I believe in the power of clean code
-              and thoughtful design to create impactful digital solutions.
+              My approach blends clean architecture, accessible UI, and
+              performance-first thinking. I love shipping features that feel great
+              to use and are a joy to maintain for teams.
             </p>
 
             <div className="grid grid-cols-3 gap-6">
