@@ -11,8 +11,8 @@ import { AnimatePresence } from "framer-motion";
 
 function App() {
   const { showSplash, handleSplashFinish, duration } = useSplashScreen({
-    duration: 4500,
-    minDisplayTime: 3000,
+    duration: 7000,
+    minDisplayTime: 6000,
     showOnFirstVisit: false // Set to true if you want splash only on first visit
   });
 

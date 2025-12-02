@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import useAssetPreloader from '../../hooks/useAssetPreloader';
 
 interface ProfessionalSplashScreenProps {
   onFinish: () => void;
@@ -15,12 +14,12 @@ interface ProfessionalSplashScreenProps {
 const ProfessionalSplashScreen: React.FC<ProfessionalSplashScreenProps> = ({
   onFinish,
   duration = 4500,
-  variant = 'tech',
-  preloadAssets = {}
-}) => {
+  variant = 'tech'
+                                                                           }) => {
   const [currentStage, setCurrentStage] = useState(0);
   const [showContent, setShowContent] = useState(false);
   const [animationPhase, setAnimationPhase] = useState('intro');
+  const [progress, setProgress] = useState(0);
 
   const stages = [
     { text: "Initializing Portfolio", icon: "⚡" },
@@ -30,15 +29,45 @@ const ProfessionalSplashScreen: React.FC<ProfessionalSplashScreenProps> = ({
     { text: "Ready to Launch", icon: "🎯" }
   ];
 
-  const { progress: assetProgress } = useAssetPreloader({
-    ...preloadAssets,
-    onProgress: (progress: number) => {
-      const stageIndex = Math.floor((progress / 100) * stages.length);
-      setCurrentStage(Math.min(stageIndex, stages.length - 1));
-    }
-  });
+  // Smooth progress animation from 0 to 100%
+  useEffect(() => {
+    const startDelay = 1000; // Start after 1 second
+    const targetDuration = duration - 800; // Leave 800ms for exit animation
+    const updateInterval = 50; // Update every 50ms for smooth animation
+    const incrementPerUpdate = (100 / (targetDuration / updateInterval));
 
-  const totalProgress = Math.max(assetProgress, (currentStage / stages.length) * 100);
+    const startTimer = setTimeout(() => {
+      const progressInterval = setInterval(() => {
+        setProgress(prev => {
+          const newProgress = prev + incrementPerUpdate;
+
+          if (newProgress >= 100) {
+            clearInterval(progressInterval);
+            return 100;
+          }
+
+          // Update stage based on progress
+          const stageIndex = Math.floor((newProgress / 100) * (stages.length - 1));
+          setCurrentStage(stageIndex);
+
+          return newProgress;
+        });
+      }, updateInterval);
+
+      // Cleanup interval when component unmounts or duration ends
+      const cleanupTimer = setTimeout(() => {
+        clearInterval(progressInterval);
+        setProgress(100);
+      }, targetDuration);
+
+      return () => {
+        clearInterval(progressInterval);
+        clearTimeout(cleanupTimer);
+      };
+    }, startDelay);
+
+    return () => clearTimeout(startTimer);
+  }, [duration, stages.length]);
 
   useEffect(() => {
     const contentTimer = setTimeout(() => setShowContent(true), 300);
@@ -238,14 +267,14 @@ const ProfessionalSplashScreen: React.FC<ProfessionalSplashScreenProps> = ({
             <div className="space-y-2">
               <div className="flex justify-between text-sm text-cyan-300 font-mono">
                 <span>LOADING_SYSTEM</span>
-                <span>{Math.round(totalProgress).toString().padStart(3, '0')}%</span>
+                <span>{Math.round(progress).toString().padStart(3, '0')}%</span>
               </div>
               <div className="w-full bg-gray-800 border border-cyan-500/30 h-3 overflow-hidden">
                 <motion.div
                   className="h-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 relative"
                   initial={{ width: 0 }}
-                  animate={{ width: `${totalProgress}%` }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  animate={{ width: `${progress}%` }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
                   style={{
                     boxShadow: '0 0 10px rgba(0,255,255,0.6), inset 0 1px 0 rgba(255,255,255,0.3)'
                   }}
@@ -383,20 +412,20 @@ const ProfessionalSplashScreen: React.FC<ProfessionalSplashScreenProps> = ({
           transition={{ delay: 0.9, duration: 0.8 }}
           className="w-80 mx-auto"
         >
-          <div className="mb-4">
-            <div className="flex justify-between text-sm text-gray-600 mb-2 font-medium">
-              <span>{stages[currentStage]?.text}</span>
-              <span>{Math.round(totalProgress)}%</span>
+            <div className="mb-4">
+              <div className="flex justify-between text-sm text-gray-600 mb-2 font-medium">
+                <span>{stages[currentStage]?.text}</span>
+                <span>{Math.round(progress)}%</span>
+              </div>
+              <div className="w-full bg-gray-300 rounded-full h-2 overflow-hidden">
+                <motion.div
+                  className="h-full bg-gradient-to-r from-blue-600 to-blue-700 rounded-full"
+                  initial={{ width: 0 }}
+                  animate={{ width: `${progress}%` }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                />
+              </div>
             </div>
-            <div className="w-full bg-gray-300 rounded-full h-2 overflow-hidden">
-              <motion.div
-                className="h-full bg-gradient-to-r from-blue-600 to-blue-700 rounded-full"
-                initial={{ width: 0 }}
-                animate={{ width: `${totalProgress}%` }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-              />
-            </div>
-          </div>
         </motion.div>
       </div>
     </motion.div>
@@ -487,11 +516,11 @@ const ProfessionalSplashScreen: React.FC<ProfessionalSplashScreenProps> = ({
             <motion.div
               className="h-6 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 rounded-full flex items-center justify-end pr-3"
               initial={{ width: 0 }}
-              animate={{ width: `${totalProgress}%` }}
+              animate={{ width: `${progress}%` }}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
               <span className="text-white text-sm font-bold">
-                {Math.round(totalProgress)}%
+                {Math.round(progress)}%
               </span>
             </motion.div>
           </div>
@@ -566,13 +595,13 @@ const ProfessionalSplashScreen: React.FC<ProfessionalSplashScreenProps> = ({
               <motion.div
                 className="absolute left-0 top-0 h-full bg-white"
                 initial={{ width: 0 }}
-                animate={{ width: `${totalProgress}%` }}
+                animate={{ width: `${progress}%` }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               />
             </div>
             <div className="flex justify-between text-xs text-gray-500 mt-2">
               <span>Loading</span>
-              <span>{Math.round(totalProgress)}%</span>
+              <span>{Math.round(progress)}%</span>
             </div>
           </div>
         </motion.div>
