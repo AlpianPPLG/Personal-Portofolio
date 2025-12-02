@@ -1,9 +1,11 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { projects, categories, techStacks } from "../data/projects";
 import { ProjectCard } from "./ui/ProjectCard";
 import { ProjectModal } from "./ui/ProjectModal";
 import { ProjectFilter } from "./ui/ProjectFilter";
+import { PortfolioCardSkeleton } from "./ui/Skeleton";
+import { ProgressiveLoader } from "./ui/BlurImage";
 import type { Project } from "../types";
 
 const Portfolio = () => {
@@ -11,6 +13,28 @@ const Portfolio = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedTechStacks, setSelectedTechStacks] = useState<string[]>([]);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate loading delay for demo purposes
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [activeCategory, selectedTechStacks, searchTerm]);
+
+  // Reset loading when filters change
+  useEffect(() => {
+    if (activeCategory !== "All" || selectedTechStacks.length > 0 || searchTerm) {
+      setIsLoading(true);
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [activeCategory, selectedTechStacks, searchTerm]);
 
   // Handle tech stack filter toggle
   const handleTechStackChange = (tech: string) => {
@@ -99,13 +123,34 @@ const Portfolio = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                onClick={() => setSelectedProject(project)}
-              />
-            ))}
+            {isLoading ? (
+              // Show skeleton cards while loading
+              Array.from({ length: 6 }, (_, index) => (
+                <ProgressiveLoader
+                  key={`skeleton-${index}`}
+                  isLoading={true}
+                  skeleton={<PortfolioCardSkeleton />}
+                  delay={index * 100}
+                >
+                  <div />
+                </ProgressiveLoader>
+              ))
+            ) : (
+              // Show actual portfolio cards
+              filteredProjects.map((project, index) => (
+                <ProgressiveLoader
+                  key={project.id}
+                  isLoading={false}
+                  skeleton={<PortfolioCardSkeleton />}
+                  delay={index * 150}
+                >
+                  <ProjectCard
+                    project={project}
+                    onClick={() => setSelectedProject(project)}
+                  />
+                </ProgressiveLoader>
+              ))
+            )}
           </AnimatePresence>
         </motion.div>
 
